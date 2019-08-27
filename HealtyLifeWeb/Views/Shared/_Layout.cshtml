@@ -1,0 +1,267 @@
+﻿@using BLL
+@using ENT
+<!doctype html>
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>healtyLife</title>
+    <link rel="icon" href="~/Content/images/tik.png">
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- animate CSS -->
+    <link href="~/Content/css/animate.css" rel="stylesheet" />
+
+    <!-- owl carousel CSS -->
+    <link href="~/Content/css/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- font awesome CSS -->
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- flaticon CSS -->
+    <link href="~/Content/css/flaticon.css" rel="stylesheet" />
+
+    <link href="~/Content/css/themify-icons.css" rel="stylesheet" />
+
+    <!-- font awesome CSS -->
+    <link href="~/Content/css/magnific-popup.css" rel="stylesheet" />
+
+    <!-- swiper CSS -->
+    <link href="~/Content/css/swiper.min.css" rel="stylesheet" />
+
+    <!-- style CSS -->
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <!--::header part start::-->
+    <header  style="padding-top:20px; background-color:#ecfdff;" class="main_menu home_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="~/Home/Index"> <img src="~/Content/images/healtlogo2.png" style="width:85px; max-width:100%; height:85px;" alt="logo"> </a>
+
+                        <div style="padding-left:170px;" class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Home/Index">Anasayfa</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
+                                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Kategoriler
+                                    </a>
+                                    @{
+                                        BLL_KATEGORI ktgr = new BLL_KATEGORI();
+
+                                        List<ent_KATEGORI> kategoriList = ktgr.ListKategori();
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                                            @foreach (ENT.ent_KATEGORI item in kategoriList)
+                                            {
+                                                <a class="dropdown-item" href="@Url.Action("UrunListele_By_Ktg", "Home", new { ktg_id = item.kategori_id })">@item.kategori_ad</a>
+                                            }
+                                        </div>
+                                    }
+
+
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
+                                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Kurumsal
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                                        <a class="dropdown-item" href="blog.html"></a>
+                                        <a class="dropdown-item" href="~/Home/Hakkimizda">Hakkımızda</a>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Iletisim/Index">İletişim</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div style="padding-left:200px" class="hearer_icon d-flex;">
+                            <ul class="nav navbar-nav">
+                                <li  class="dropdown messages-menu">
+                                    <a href="#"  data-toggle="dropdown">
+                                     <strong><span class="fa fa-list"style="color:rosybrown;padding-left:55px;"></span></strong>  
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                       
+                                        <li>
+                                            <!-- inner menu: contains the actual data -->
+                                            <ul class="nav navbar-nav">
+                                                <li>
+                                                    @{
+                                                        BLL_KATEGORI ktgr1 = new BLL_KATEGORI();
+
+                                                        List<ent_KATEGORI> kategoriList1 = ktgr.ListKategori();
+
+                                                        foreach (ENT.ent_KATEGORI item in kategoriList1)
+                                                        {
+                                                                <a class="dropdown-item" href="@Url.Action("UrunListele_By_Ktg", "Home", new { ktg_id = item.kategori_id })">@item.kategori_ad</a>
+                                                        }
+
+                                                    }
+
+                                                </li>
+                                                <!-- end message -->
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- Tasks: style can be found in dropdown.less -->
+
+                            </ul>
+
+                        </div>
+                      
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="search_input" id="search_input_box">
+            <div class="container ">
+                <form class="d-flex justify-content-between search-inner">
+                    <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+                    <button type="submit" class="btn"></button>
+                    <span class="ti-close" id="close_search" title="Close Search"></span>
+                </form>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+    <!-- banner part start-->
+    @RenderBody()
+    <!--::footer_part start::-->
+    <footer style="background-color:#ecfdff" class="footer_part">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div style="padding-right:-50px; padding-left:100px;" class="col-sm-6 col-lg-3">
+                    <div class="single_footer_part">
+                        <h4>Kurumsal</h4>
+                        <ul class="list-unstyled">
+                            <li><a style="color:steelblue" href="~/Home/Hakkimizda">Hakkımızda</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a style="color:steelblue" href="~/Iletisim/Index">İletişim</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a style="color:steelblue" href="~/Yonetim/Admin/Index">Admin Paneli</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="padding-left:10px;" class="col-sm-6 col-lg-3">
+                    <div class="banner_img">
+                        <a href="~/Home/Index"> <img src="~/Content/images/healtlogo2.png" style=" width:85px; max-width:100%; width:262px; height:130px;" alt="logo"></a>
+                    </div>
+                </div>
+                <div style="padding-left:100px;" class="col-sm-6 col-lg-3">
+                    <div class="single_footer_part">
+                        <h4>Kategoriler</h4>
+                        @{
+                            BLL_KATEGORI ktgr2 = new BLL_KATEGORI();
+
+                            List<ent_KATEGORI> kategoriList2 = ktgr2.ListKategori();
+                        <ul class="list-unstyled">
+                            @foreach (ENT.ent_KATEGORI item in kategoriList2)
+                            {
+                                <li><a style="color:steelblue"  href="@Url.Action("UrunListele_By_Ktg", "Home", new { ktg_id = item.kategori_id })">@item.kategori_ad</a></li>
+                            }
+                           
+                        </ul>
+                            }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="copyright_part">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="copyright_text">
+                            <P>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </P>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer_icon social_icon">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="single_social_icon"><i class="fa fa-facebook-f"></i></a></li>
+                                <li><a href="#" class="single_social_icon"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="single_social_icon"><i class="fa fa-globe"></i></a></li>
+                                <li><a href="#" class="single_social_icon"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--::footer_part end::-->
+    <!-- jquery plugins here-->
+    <script src="~/Content/js/jquery-1.12.1.min.js"></script>
+
+    <!-- popper js -->
+    <script src="~/Content/js/popper.min.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+
+    <!-- easing js -->
+    <script src="~/Content/js/jquery.magnific-popup.js"></script>
+
+    <!-- swiper js -->
+    <script src="~/Content/js/swiper.jquery.js"></script>
+
+    <!-- swiper js -->
+    <script src="~/Content/js/masonry.pkgd.js"></script>
+
+    <!-- particles js -->
+    <script src="~/Content/js/owl.carousel.min.js"></script>
+
+    <script src="~/Content/js/jquery.nice-select.min.js"></script>
+
+    <!-- slick js -->
+    <script src="~/Content/js/slick.min.js"></script>
+
+
+    <script src="~/Content/js/jquery.counterup.min.js"></script>
+
+
+    <script src="~/Content/js/waypoints.min.js"></script>
+
+
+    <script src="~/Content/js/contact.js"></script>
+
+
+    <script src="~/Content/js/jquery.ajaxchimp.min.js"></script>
+
+
+    <script src="~/Content/js/jquery.form.js"></script>
+
+
+    <script src="~/Content/js/jquery.validate.min.js"></script>
+
+
+    <script src="~/Content/js/mail-script.js"></script>
+
+    <!-- custom js -->
+    <script src="~/Content/js/custom.js"></script>
+
+</body>
+
+</html>

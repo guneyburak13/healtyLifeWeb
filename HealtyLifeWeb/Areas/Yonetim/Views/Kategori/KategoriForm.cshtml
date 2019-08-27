@@ -1,0 +1,36 @@
+﻿@model ENT.ent_KATEGORI
+@{
+    ViewBag.Title = "KategoriForm";
+    Layout = "~/Areas/Yonetim/Views/Shared/_Layout.cshtml";
+   
+}
+
+<h2>Kategori Form</h2>
+
+
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Kategori Form</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" action="@Url.Action("CreateKategori","Kategori")" method="post">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Kategori İsim</label>
+                    <div class="col-sm-10">
+                        <input type="hidden" name="kategori_id" value="@this.Model.kategori_id" />
+                        <input type="text" name="kategori_ad" class="form-control" placeholder="Kategori İsmi" value="@this.Model.kategori_ad" />
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <a href="@Url.Action("KategoriList", "Kategori")" class="btn btn-default"><i class="fa fa-reply"></i> İptal</a>
+                <button type="submit" class="btn btn-info pull-right"><i class="fa fa-save"></i> Kaydet</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>

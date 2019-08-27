@@ -1,0 +1,11 @@
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\bin\Debug\BLL.dll
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\bin\Debug\BLL.pdb
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\bin\Debug\DAL.dll
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\bin\Debug\ENT.dll
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\bin\Debug\EntityFramework.dll
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\bin\Debug\DAL.pdb
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\bin\Debug\ENT.pdb
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\bin\Debug\EntityFramework.xml
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\obj\Debug\BLL.dll
+c:\users\burak\documents\visual studio 2015\Projects\HealtyLifeWeb\BLL\obj\Debug\BLL.pdb

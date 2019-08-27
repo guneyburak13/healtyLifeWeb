@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HealtyLifeModelStoreContainer" CdmEntityContainer="DataAccessEntities">
+    <EntitySetMapping Name="l_admin">
+      <EntityTypeMapping TypeName="HealtyLifeModel.l_admin">
+        <MappingFragment StoreEntitySet="l_admin">
+          <ScalarProperty Name="adm_id" ColumnName="adm_id" />
+          <ScalarProperty Name="adm_name" ColumnName="adm_name" />
+          <ScalarProperty Name="adm_kullanici_adi" ColumnName="adm_kullanici_adi" />
+          <ScalarProperty Name="adm_sifre" ColumnName="adm_sifre" />
+          <ScalarProperty Name="adm_ispassive" ColumnName="adm_ispassive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="l_kategori">
+      <EntityTypeMapping TypeName="HealtyLifeModel.l_kategori">
+        <MappingFragment StoreEntitySet="l_kategori">
+          <ScalarProperty Name="kategori_id" ColumnName="kategori_id" />
+          <ScalarProperty Name="kategori_ad" ColumnName="kategori_ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="l_uyeler">
+      <EntityTypeMapping TypeName="HealtyLifeModel.l_uyeler">
+        <MappingFragment StoreEntitySet="l_uyeler">
+          <ScalarProperty Name="uye_ispassive" ColumnName="uye_ispassive" />
+          <ScalarProperty Name="uye_mail" ColumnName="uye_mail" />
+          <ScalarProperty Name="uye_telefon" ColumnName="uye_telefon" />
+          <ScalarProperty Name="uye_kayit_tarihi" ColumnName="uye_kayit_tarihi" />
+          <ScalarProperty Name="uye_detay" ColumnName="uye_detay" />
+          <ScalarProperty Name="uye_foto_url" ColumnName="uye_foto_url" />
+          <ScalarProperty Name="uye_sifre" ColumnName="uye_sifre" />
+          <ScalarProperty Name="uye_kullanici_adi" ColumnName="uye_kullanici_adi" />
+          <ScalarProperty Name="uye_ad_soyad" ColumnName="uye_ad_soyad" />
+          <ScalarProperty Name="uye_id" ColumnName="uye_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="l_urunler">
+      <EntityTypeMapping TypeName="HealtyLifeModel.l_urunler">
+        <MappingFragment StoreEntitySet="l_urunler">
+          <ScalarProperty Name="urun_ispassive" ColumnName="urun_ispassive" />
+          <ScalarProperty Name="urun_tarih" ColumnName="urun_tarih" />
+          <ScalarProperty Name="urun_uye_id" ColumnName="urun_uye_id" />
+          <ScalarProperty Name="urun_foto_url" ColumnName="urun_foto_url" />
+          <ScalarProperty Name="urun_detay" ColumnName="urun_detay" />
+          <ScalarProperty Name="urun_fiyat" ColumnName="urun_fiyat" />
+          <ScalarProperty Name="urun_kategori_id" ColumnName="urun_kategori_id" />
+          <ScalarProperty Name="urun_adi" ColumnName="urun_adi" />
+          <ScalarProperty Name="urun_id" ColumnName="urun_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

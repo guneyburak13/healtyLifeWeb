@@ -1,0 +1,94 @@
+﻿@model ENT.ent_URUNLER
+@{
+    ViewBag.Title = "UrunForm";
+    Layout = "~/Areas/Yonetim/Views/Shared/_Layout.cshtml";
+    List<ENT.ent_URUNLER> kategori = ViewBag.kategoriler;
+}
+
+
+<h2>Ürün Form</h2>
+
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" action="@Url.Action("CreateUrun","Urunler")" method="post">
+            <div class="box-body">
+                <div class="form-group">
+
+                    <div class="col-sm-10">
+                        <input type="hidden" name="urun_id" value="@this.Model.urun_id" />
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ürün Adı </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="urun_adi" class="form-control" value="@this.Model.urun_adi" placeholder="Ürün Adı">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Kategori ID </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="urun_kategori_id" class="form-control" value="@this.Model.urun_kategori_id" placeholder="Kategori Adı">
+                    </div>
+                    
+                    </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> Ürün Üye - Firma Id </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="urun_uye_id" class="form-control" value="@this.Model.urun_uye_id" placeholder="Ürün Üye - Firma Id">
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ürün Fiyatı</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="urun_fiyat" class="form-control" value="@this.Model.urun_fiyat" placeholder="Ürün Fiyatı" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ürün Detayı</label>
+                    <div class="col-sm-10">
+                    <input  name="urun_detay" class="form-control" value="@this.Model.urun_detay" placeholder="Ürün Detayı" cols="100" rows="10">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ürün Fotoğrafı</label>
+                    <div class="col-sm-10">
+                        <input type="file" name="urun_foto_url" class="form-control" value="@this.Model.urun_foto_url"  placeholder="Ürün Fotoğrafı" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Ürün Tarihi</label>
+                    <div class="col-sm-10">
+                        <input type="date" name="urun_tarih" class="form-control" value="@this.Model.urun_tarih" placeholder="Ürün Tarihi" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">&nbsp;</label>
+                    <div class="col-sm-6">
+                        <div class="checkbox icheck">
+                            <label>
+                                <input type="checkbox" name="urun_ispassive" value="true" @(this.Model.urun_ispassive ? "checked" : "") /> Pasif Yap
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <a href="@Url.Action("UrunlerList", "Urunler")" class="btn btn-default"><i class="fa fa-reply"></i> İptal</a>
+                <button type="submit" class="btn btn-info pull-right"><i class="fa fa-save"></i> Kaydet</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>

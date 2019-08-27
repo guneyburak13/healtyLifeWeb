@@ -1,0 +1,55 @@
+﻿@model ENT.ent_ADMIN
+@{
+    ViewBag.Title = "AdminForm";
+    Layout = "~/Areas/Yonetim/Views/Shared/_Layout.cshtml";
+}
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Admin Form</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" action="@Url.Action("CreateAdmin","Admin")" method="post">
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Admin Ad Soyad</label>
+                    <div class="col-sm-10">
+                        <input type="hidden" name="adm_id" value="@this.Model.adm_id" />
+                        <input type="text" name="adm_name" class="form-control" placeholder="İsim" value="@this.Model.adm_name" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Kullanıcı Adı</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="adm_kullanici_adi" class="form-control" value="@this.Model.adm_kullanici_adi" placeholder="Kullanıcı Adı">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Şifre</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="adm_sifre" class="form-control" value="@this.Model.adm_sifre" placeholder="Şifre" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">&nbsp;</label>
+                    <div class="col-sm-6">
+                        <div class="checkbox icheck">
+                            <label>
+                                <input type="checkbox" name="adm_ispassive" value="true" @(this.Model.adm_ispassive ? "checked" : "") /> Pasif Yap
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <a href="@Url.Action("AdminList", "Admin")" class="btn btn-default"><i class="fa fa-reply"></i> İptal</a>
+                <button type="submit" class="btn btn-info pull-right"><i class="fa fa-save"></i> Kaydet</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>
+

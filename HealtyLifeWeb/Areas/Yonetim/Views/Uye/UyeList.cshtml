@@ -1,0 +1,61 @@
+﻿@model List<ENT.ent_UYELER>
+@{
+    ViewBag.Title = "UyeList";
+    Layout = "~/Areas/Yonetim/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Uyeler Tablosu</h3>
+            <div class="box-tools">
+                <a href="@Url.Action("UyeForm", "Uye")" class="btn btn-success btn-sm"><i class="fa fa-bacon"></i> Yeni Üye Oluştur</a>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th style="width: 10px">SN.</th>
+                        <th>Üye Ad-Soyad</th>
+                        <th>Üye Kullanıcı Adı</th>
+                        <th>Üye Şifre</th>
+                        <th>Üye Telefon</th>
+                        <th>Üye Mail</th>
+                        <th>Üye Fotoğrafı</th>
+                        <th>Üye Detay</th>
+                        <th>Üye Kayıt Tarihi</th>
+                        <th>Üye Pasif - Aktif</th>
+                        <th style="width: 80px">İşlem</th>
+                    </tr>
+                    @{int s = 1;}
+                    @foreach (ENT.ent_UYELER item in this.Model)
+                    {
+                        <tr>
+                            <td>@s</td>
+                            <td>@item.uye_ad_soyad</td>
+                            <td>@item.uye_kullanici_adi</td>
+                            <td>@item.uye_sifre</td>
+                            <td>@item.uye_telefon</td>
+                            <td>@item.uye_mail</td>
+                            <td width="50" height="50"><img src="~/Content/Themes/Admin/img/@item.uye_foto_url" height="70" width="90" /></td>
+                            <td>@item.uye_detay</td>
+                            <td>@item.uye_kayit_tarihi</td>
+                            <td>@(item.uye_ispassive ? "Pasif" : "Aktif")</td>
+                            <td>
+                                <a href="@Url.Action("UyeForm", "Uye", new { uye_id = item.uye_id })" class="btn btn-info btn-sm" title="İncele"><i class="fa fa-search"></i></a>
+                            </td>
+                        </tr>
+                        s++;
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+            @ViewBag.pagination
+        </div>
+    </div>
+</div>

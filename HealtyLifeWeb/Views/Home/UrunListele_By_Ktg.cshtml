@@ -1,0 +1,52 @@
+﻿@model List<ENT.ent_URUNLER>
+@{
+    ViewBag.Title = "UrunListele_By_Ktg";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/>
+<br />
+
+    <div style=" padding:20px;padding-top:180px; padding-left:35px; padding-right:35px; background-color:#ecfdff;}" class="row align-items-center latest_product_inner">
+       @foreach (ENT.ent_URUNLER item in Model)
+       {
+        <div style="width:375px; height:423px;"  class="col-lg-4 col-sm-6">
+            <div style="border-radius:4%;background-color:#ecfdff;" class="single_product_item">
+                <img style="width:385px; height:225px;  border-top-left-radius:5%; border-top-right-radius:5%;" src="~/Content/images/@item.urun_foto_url" alt=""><a href="@Url.Action("UrunGoruntule","Home",new {urun_id=item.urun_id })"></a>
+                <div class="single_product_text" style="width:385px">
+                    <h4 style="color:dimgray;">@item.urun_adi</h4>
+                    <h3 style="color:teal">@item.urun_fiyat ₺</h3>
+                    <a href="@Url.Action("UrunGoruntule","Home",new {urun_id=item.urun_id })" class="add_cart">Ürün Detayı<i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+       }
+        
+        <div class="col-lg-12">
+            <div class="pageination">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <i class="ti-angle-double-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <i class="ti-angle-double-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+

@@ -1,0 +1,54 @@
+﻿@using BLL
+@using ENT
+@model ENT.ent_URUNLER
+@{
+    ViewBag.Title = "UrunGoruntule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style=" background-color:#ecfdff" class="product_image_area section_padding">
+    <div class="container">
+        <div  style=" margin-top:30px; height:720px;" class="row s_product_inner justify-content-between">
+            <div class="col-lg-7 col-xl-7" style="height:750px;">
+                <div class="product_slider_img">
+                    <div class="lSSlideOuter  vertical" style="padding-right: 10px; height:750px;">
+                        <div class="lSSlideWrapper usingCss" style="height: 450px;">
+                            <div id="vertical" class="lightSlider lsGrab lSSlide" style=" transform: translate3d(0px, 0px, 0px);">
+                                <div data-thumb="~/Content/images/@Model.urun_foto_url" class="lslide active" style="height: 450px; margin-bottom: 0px;">
+                                    <img  style="border-top-left-radius:8%; border-bottom-right-radius:8%; width:500px; height:325px; margin:10px;margin-left:50px; padding:-50px;" src="~/Content/images/@Model.urun_foto_url">
+                                </div>
+                            </div><div class="lSAction"><a class="lSPrev"></a><a class="lSNext"></a></div>
+                        </div><ul class="lSPager lSGallery" style="margin-left: 5px; width: 100px; transition-duration: 600ms; height: 607.167px; transform: translate3d(0px, 0px, 0px);"><li style="width:100%;height:146.66666666666666px;margin-bottom:5px" class="active"><a href="#"><img src="~/Content/images/@Model.urun_foto_url"></a></li></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-5">
+                <div style="height:910px;" class="s_product_text">
+                    <h3>@Model.urun_adi</h3>            
+                    <ul class="list">
+                        <li>
+                            <a >
+                                <span>Fiyat</span> : @Model.urun_fiyat ₺
+                            </a>
+                        </li>
+                        <li>
+                            <a class="active" href="@Url.Action("UrunListele_By_Ktg","Home",new {ktg_id=Model.urun_kategori_id })">
+                                <span>Kategori </span> :  @Model.urun_kategori_adi
+                            </a>
+                        </li>
+                        <li>
+                            <a  style="color:burlywood" class="active">
+                                <span> Firma Adı </span> :  @Model.urun_uye_adi
+                            </a>
+                        </li>
+                    </ul>
+                    <p>
+                        @Model.urun_detay
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
